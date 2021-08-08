@@ -1,0 +1,29 @@
+name: install softwares
+  hosts:  webservers
+  become: true
+  tasks:
+name: print the hostname
+    command: hostname
+name: install base packages
+    ansible.builtin.apt:
+      update_cache: yes
+      name: "{{ default_packages }}"
+    vars:
+      default_packages:
+python3
+git
+pip
+      #  - tree
+     #   - python3-pip
+      state: installed
+name: Install the Python MySQLB module
+    pip:
+     name:  "{{ default_packages }}"
+    vars:
+      default_packages:
+mysql-connector-python
+PyMySQL
+name: create a tetst file
+    file:
+      path: /home/test
+      state: touch

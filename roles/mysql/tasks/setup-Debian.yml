@@ -7,10 +7,10 @@
   apt: update_cache=yes
   when: not mysql_installed.stat.exists
 
-- name: Ensure MySQL Python libraries are installed.
-  apt:
-    name: "{{ mysql_python_package_debian }}"
-    state: present
+# - name: Ensure MySQL Python libraries are installed.
+#   apt:
+#     name: "{{ mysql_python_package_debian }}"
+#     state: present
 
 - name: Ensure MySQL packages are installed.
   apt:
