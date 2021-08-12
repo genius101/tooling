@@ -6,7 +6,7 @@
     state: "{{ apache_packages_state }}"
     enablerepo: "{{ apache_enablerepo | default(omit, true) }}"
 
-- name:set httpd_can_network_connect fag on and keep it persistent across reboots
+- name: Set httpd_can_network_connect fag on and keep it persistent across reboots
   become: yes
   ansible.posix.seboolean:
     name: httpd_can_network_connect

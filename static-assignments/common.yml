@@ -26,19 +26,22 @@
   become: true
   tasks:
     
+    - name: installing and updating repos
+      dnf: update_cache=yes state=present
+
     - name: print the hostname
       command: hostname
 
     - name: install base packages
-      ansible.builtin.apt:
+      ansible.builtin.yum:
         update_cache: yes
 
     - name: Install dependencies for mySQL Python
-      apt:
+      yum:
         name:
           - python3
           - git
-          - pip
+          - python3-pip
           #  - tree
           #   - python3-pip
         state: present

@@ -1,7 +1,7 @@
 ---
 # Variable setup.
 - name: Include OS-specific variables.
-  include_vars: "Debian.yml"
+  include_vars: "RedHat.yml"
 
 - name: Define nginx_user.
   set_fact:
@@ -37,8 +37,8 @@
     block: |
       {{ item.ip }} {{ item.name }}
   loop:
-    - { name: web1, ip: 172.31.2.89 }
-    - { name: web2, ip: 172.31.24.150 }
+    - { name: web1, ip: 172.31.8.6 }
+    - { name: web2, ip: 172.31.1.187 }
 
 # Nginx setup.
 - name: Copy nginx configuration in place.
